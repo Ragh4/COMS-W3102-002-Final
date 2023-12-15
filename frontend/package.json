@@ -1,0 +1,30 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "proxy": "http://localhost:8000",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "typescript": "3.3.3",
+    "@babel/plugin-proposal-private-property-in-object": "^1.0.0"
+  },
+  "scripts": {
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
