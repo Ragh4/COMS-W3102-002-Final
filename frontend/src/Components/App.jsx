@@ -2,11 +2,10 @@ import React, { useState, useEffect} from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
-import notes from "../notes";
 import axios from "axios";
 
 function App() {
-  const [allNotes, setAllNotes] = useState(notes);
+  const [allNotes, setAllNotes] = useState([]);
 
   const [newNote, setNewNote] = useState({
     title: "",
@@ -49,7 +48,7 @@ function App() {
 
   function deleteNote(id) {
     axios.delete(`/api/notes/${id}`).then(() => {
-      setAllNotes((prevNotes) => prevNotes.filter((note) => note.key !== id));
+      setAllNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
     })
     .catch((error) => {
       console.error("Error deleting note:", error);
