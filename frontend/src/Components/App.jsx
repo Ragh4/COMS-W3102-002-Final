@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -33,6 +33,7 @@ function App() {
   }
 
   function addNote(event) {
+    event.preventDefault();
     if (newNote.title || newNote.content) {
       axios.post("/api/notes", newNote).then((response) => {
         setAllNotes((prevNotes) => [...prevNotes, newNote]);
@@ -44,7 +45,6 @@ function App() {
         console.error("Error creating note:", error);
       });
     }
-    //event.preventDefault();
   }
 
   function deleteNote(id) {
