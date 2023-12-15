@@ -35,7 +35,7 @@ function App() {
     event.preventDefault();
     if (newNote.title || newNote.content) {
       axios.post("/api/notes", newNote).then((response) => {
-        setAllNotes((prevNotes) => [...prevNotes, newNote]);
+        setAllNotes((prevNotes) => [...prevNotes, response.data]);
         setNewNote({
           title: "",
           content: ""
@@ -77,9 +77,9 @@ function App() {
         </form>
       </div>
       <div>
-        {allNotes.map((note) => (
+        {allNotes.map((note, index) => (
           <Note
-            key={note._id}
+            key={index}
             id={note._id}
             title={note.title}
             content={note.content}
