@@ -48,7 +48,7 @@ function App() {
 
   function deleteNote(id) {
     axios.delete(`/api/notes/${id}`).then(() => {
-      setAllNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
+      setAllNotes((prevNotes) => prevNotes.filter((note) => note._id !== id));
     })
     .catch((error) => {
       console.error("Error deleting note:", error);
