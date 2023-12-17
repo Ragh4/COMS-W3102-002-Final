@@ -26,21 +26,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Update a note by ID
-router.put("/:id", async (req, res) => {
-  try {
-    const updatedNote = await Note.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.json(updatedNote);
-  } catch (error) {
-    console.error("Error updating note:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
-
 // Delete a note by ID
 router.delete("/:id", async (req, res) => {
   try {
